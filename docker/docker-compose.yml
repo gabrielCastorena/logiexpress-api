@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:8.4
+    container_name: logiexpress-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_logi
+      MYSQL_DATABASE: logiexpress_db
+      MYSQL_USER: gabriel
+      MYSQL_PASSWORD: root
+    command: --default-time-zone=-06:00
+    ports:
+      - "3307:3306"
+    volumes:
+      - logiexpress_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+
+volumes:
+  logiexpress_data:
