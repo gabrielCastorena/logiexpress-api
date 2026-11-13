@@ -28,3 +28,10 @@ export const createEventoRastreo = async (req: Request, res: Response) => {
     const evento = await historialRastreoRepository.registrarEvento(id, req.body);
     res.status(201).json(evento);
 };
+
+
+//GET /api/envios
+export const getEnviosActivos = async (req: Request, res: Response) => {
+    const envios = await envioRepository.findActivos();
+    res.json(envios);
+};
