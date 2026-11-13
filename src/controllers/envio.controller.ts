@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { envioRepository } from "../repository/EnvioRepository.js";
+import { historialRastreoRepository } from "../repository/HistorialRastreoRepository.js";
 
 //POST /api/envios 
 export const createEnvio = async (req: Request, res: Response) => {
@@ -18,4 +19,12 @@ export const updateCostoEnvio = async (req: Request, res: Response) => {
         return res.status(404).json({ message: "Envio no encontrado" });
     }
     res.json(envio);
+};
+
+
+//POST /api/envios/:id/rastreo
+export const createEventoRastreo = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const evento = await historialRastreoRepository.registrarEvento(id, req.body);
+    res.status(201).json(evento);
 };

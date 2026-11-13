@@ -1,9 +1,11 @@
 import express, { Request, Response, NextFunction } from 'express';
 import envioRoutes from './routes/envio.routes.js';
+import almacenRoutes from './routes/almacen.routes.js';
 const app = express();
 
 app.use(express.json());
 app.use('/api/envios', envioRoutes);
+app.use('/api/almacenes', almacenRoutes);
 
 app.get('/api/status', (req: Request, res: Response) => {
   res.json({ status: 'OK', message: 'API funcionando correctamente' });
