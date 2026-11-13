@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 AppDataSource.initialize()
     .then(() => {
-        console.log("¡Conexión exitosa a la base de datos ventas_db!");
+        console.log("¡Conexión exitosa a la base de datos logiexpress_db!");
         app.listen(PORT, () => {
             console.log(`Servidor corriendo en http://localhost:${PORT}`);
         });
