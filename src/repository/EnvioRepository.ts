@@ -13,6 +13,12 @@ export class EnvioRepository {
         });
         return await this.repository.save(envio);
     }
+
+        async actualizarCosto(idEnvio: number, costoTotal: number): Promise<Envio | null> {
+        await this.repository.update(idEnvio, { costo_total: costoTotal });
+        return await this.repository.findOneBy({ id_envio: idEnvio });
+    }
+    
 }
 
 export const envioRepository = new EnvioRepository();
