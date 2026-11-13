@@ -1,8 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
+import envioRoutes from './routes/envio.routes.js';
 const app = express();
 
 // Middleware para parsear JSON
 app.use(express.json());
+app.use('/api/envios', envioRoutes);
 
 // Ruta de prueba/salud
 app.get('/api/status', (req: Request, res: Response) => {
